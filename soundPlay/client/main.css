@@ -20,3 +20,19 @@
 .btn:focus {
   outline: none;
 }
+
+#choiceA{
+	visibility: hidden;
+}
+
+#choiceB{
+	visibility: hidden;
+}
+
+#setupBtn{
+	visibility:hidden;
+}
+
+[name="selectable"]{
+	visibility:visible;
+}

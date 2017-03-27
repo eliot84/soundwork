@@ -41,11 +41,15 @@ Tracker.autorun(function(){
 Template.display.events({
 
 
-	'click [name="play"]':function(){
+	'click [name="start"]':function(event, template){
 		console.log("you clicked me! do you want me to play?");
 		var playList = Session.get("playSounds");
 
+		template.$("#startBtn").css("visibility","hidden");
+		template.$("")
+
 		console.log("Length of playlist:  " + playList.length + playList[0]);
+
 
 		var soundA = Math.floor(Math.random() * 49);
 		soundA = soundA.toString();
@@ -56,16 +60,34 @@ Template.display.events({
 			piano.play(soundA);
 			piano.once('end', function(){
 				piano.play("30");
+
+	
 				
 			});
 		
 		
+		template.$("#choiceA").css("visibility","visible");
+		template.$("#choiceB").css("visibility", "visible");
+		template.$("[name='selectable']").css("visibility", "hidden");
+		template.$("#setupBtn").css("visibility", "visible");
+
 
 	
 
 		//var theChoice = Math.floor(Math.random() * choices.length);
 		//theChoice = theChoice.toString();
 
+
+	},
+
+	'click [id="setupBtn"]': function(event, template){
+		console.log('you clicked the setup btn!!');
+
+		template.$("#setupBtn").css("visibility", "hidden");
+		template.$("#startBtn").css("visibility", "visible");
+		template.$("[name='selectable']").css("visibility", "visible");
+		template.$("#choiceA").css("visibility","hidden");
+		template.$("#choiceB").css("visibility", "hidden");
 
 	},
 
@@ -111,5 +133,6 @@ Template.display.events({
 });
 
 Template.display.helpers({
+
 
 });
