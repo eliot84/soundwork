@@ -7,3 +7,16 @@
 	margin-right: 20px;
 	margin-bottom: 10px;
 }
+
+
+.active{
+	background-color: orange;
+}
+
+.inactive{
+	background-color: gray;
+}
+
+.btn:focus {
+  outline: none;
+}
